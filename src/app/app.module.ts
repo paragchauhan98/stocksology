@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header/header.component';
 import { FeatureComponent } from './features/feature/feature.component';
 import { AboutComponent } from './about/about/about.component';
 import { ContactComponent } from './contact/contact/contact.component';
+import { FooterComponent } from './footer/footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { BacktestingComponent } from './backtesting/backtesting.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ContactComponent } from './contact/contact/contact.component';
      HeaderComponent,
      FeatureComponent,
      AboutComponent,
-     ContactComponent
+     ContactComponent,
+     FooterComponent,
+     SidebarComponent,
+     BacktestingComponent
   ],
   imports: [
     BrowserModule,
