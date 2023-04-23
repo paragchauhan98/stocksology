@@ -1,1 +1,127 @@
-<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+<div class="backtesting">
+  <div class="row">
+    <div class="sidebar">
+      <h1>STRATEGIES</h1>
+      <button><i class="fa fa-sliders"></i><span>Custom</span></button>
+      <h2>DEFAULT STRATEGIES &uarr;</h2>
+      <ul>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button (click)="setValue(0)">Short ATM +/- 1%</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button  (click)="setValue(1)">Short CP 100</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Short CP As 25%SP</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Expiry Day Strategy</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Short Strangle</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Short Straddle</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Long Straddle</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Iron Butterfly</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Iron Condor</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Bear Call Spread</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Bear Put Spread</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Bull Call Spread</button>
+        </li>
+        <li>
+          <i class="fa fa-arrow-down-left-and-arrow-up-right-to-center"></i>
+          <button>Bull Put Spread</button>
+        </li>
+      </ul>
+    </div>
+    <div class="content1">
+
+       <form>
+       
+        <mat-form-field class="select"appearance="fill">
+          <mat-label>Select Index/Stock</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="stock" class="options">
+            <mat-option *ngFor="let stock of stocks" [value]="stock.value" >
+              {{stock.viewValue}}
+            </mat-option>
+          </mat-select>
+
+
+     
+        </mat-form-field>
+        <mat-form-field class="date-picker" appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="select"appearance="fill">
+          <mat-label>Select Segment</mat-label>
+          <mat-select [(ngModel)]="selectedSegment" name="segment" class="options">
+            <mat-option *ngFor="let segment of segments" [value]="segment.value" >
+              {{segment.viewValue}}
+            </mat-option>
+          </mat-select>
+
+     
+        </mat-form-field>
+        <div class="options-bracket">
+       
+       <input class="optionsStrike" type="text" placeholder="Options Strike" name="optionsStrike">
+
+       <mat-form-field class="option"appearance="fill">
+        <mat-label>Select Option type</mat-label>
+        <mat-select [(ngModel)]="selectedOptionTpye" name="option" class="options">
+          <mat-option *ngFor="let option of options" [value]="option.value" >
+            {{option.viewValue}}
+          </mat-option>
+        </mat-select>
+
+   
+      </mat-form-field>
+      </div>
+        <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="buySell">
+  <mat-radio-button class="example-radio-button" *ngFor="let buy of buyOrSell" [value]="buy">
+    {{buy}}
+  </mat-radio-button>
+</mat-radio-group>
+<div>Your buy is: {{buySell}}</div>
+   </form> 
+ 
+    </div>
+  </div>
+</div>
