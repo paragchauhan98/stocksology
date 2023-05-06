@@ -27,7 +27,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from '../environments/environment';
+import { firebase } from '../environments/environment';
 
 import { SignInComponent } from './registration/components/sign-in/sign-in.component';
 import { SignUpComponent } from './registration/components/sign-up/sign-up.component';
@@ -64,7 +64,7 @@ import { AuthService } from './shared/services/auth.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
